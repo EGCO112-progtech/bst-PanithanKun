@@ -32,7 +32,7 @@ void insertNode_R(TreeNodePtr * t,int value){
      else insertNode_R(&(*t)->rightPtr,value);//right
       
    }
-}/*
+}
 void insertNode( BST *b, int value ){
 	 TreeNodePtr t =b->root,new_node;
 	 int inserted=0;
@@ -72,7 +72,6 @@ while(!inserted){
   }
   
 }//end function
-*/
 void postOrder( TreeNodePtr treePtr)
 {
    if(treePtr != NULL){
@@ -103,3 +102,18 @@ void inOrder( TreeNodePtr treePtr )
       inOrder( treePtr->rightPtr ); //Recursion to the right
    } // end if                          
 } // end 
+void printTree(TreeNodePtr treePtr,int Round)
+{
+  int i;
+if(treePtr != NULL)
+{
+   printTree(treePtr->rightPtr, Round+1);
+     for(i=0;i<Round; i++)
+       {
+         printf("\t");
+       }
+       printf("%d\n",treePtr->data);
+
+  printTree(treePtr->leftPtr, Round+1);
+}
+}
